@@ -20,6 +20,7 @@ import {
   PiGridFourDuotone,
   PiBookBookmarkDuotone,
   PiImageDuotone,
+  PiOpenAiLogo,
 } from "react-icons/pi";
 
 import {
@@ -27,6 +28,12 @@ import {
   SiNextdotjs,
   SiFigma,
   SiSupabase,
+  SiN8N,
+  SiReact,
+  SiAngular,
+  SiTypescript,
+  SiNodedotjs,
+  SiMedium,
 } from "react-icons/si";
 
 import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaInstagram, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
@@ -64,6 +71,13 @@ export const iconLibrary: Record<string, IconType> = {
   reddit: FaReddit,
   telegram: FaTelegram,
   instagram: FaInstagram,
+  ai: PiOpenAiLogo,
+  automation: SiN8N,
+  nodejs: SiNodedotjs,
+  react: SiReact,
+  angular: SiAngular,
+  typescript: SiTypescript,
+  medium: SiMedium,
 };
 
 export type IconLibrary = typeof iconLibrary;
