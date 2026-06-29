@@ -2,56 +2,79 @@
 title: 'AI Email Automation System with n8n + OpenAI'
 publishedAt: '2025-06-01'
 summary:
-    'Built an intelligent email processing system that reduced manual work by
-    ~70%, automatically categorizing, extracting data, and responding to
-    inquiries.'
+    'Built a production-grade system that processes 200+ emails daily in ~20
+    minutes, replacing manual inbox management with intelligent classification,
+    data extraction, and SharePoint automation.'
 images:
-    - '/images/projects/ai-email/cover-01.jpg'
-    - '/images/projects/ai-email/dashboard.jpg'
-    - '/images/projects/ai-email/workflow.jpg'
+    - '/images/projects/ai-email/n8n-workflow.png'
+    - '/images/projects/ai-email/dashboard.png'
+    - '/images/projects/ai-email/project-details.png'
 team: []
 link: ''
 ---
 
 ## Overview
 
-I developed a complete AI-powered email automation system for a service-based
-company overwhelmed by manual inbox management. The goal was to eliminate
-repetitive tasks like data extraction, categorization, and basic responses while
-maintaining high accuracy and full auditability.
+I designed and implemented a complete AI automation system for a shared Azure
+inbox that receives high volumes of business proposals and miscellaneous emails.
+The system automatically classifies emails, extracts structured project data,
+calculates taxes based on location, stores everything in a database, and
+organizes attachments in SharePoint, eliminating the need for manual review in
+most cases.
 
 ## Key Features
 
-- **Intelligent Email Processing**: Automatic classification, sentiment
-  analysis, and data extraction using OpenAI.
-- **Automated Workflows**: Built with n8n to route emails, update databases, and
-  trigger actions across tools.
-- **Dashboard Monitoring**: Real-time React dashboard to track processed emails,
-  success rates, and exceptions.
-- **Human-in-the-Loop**: Easy override system for edge cases with full history
-  logging.
+- **Smart Email Classification**: Determines whether an email is a business
+  proposal using optimized rules (regex + whitelists/blacklists) before sending
+  to OpenAI.
+- **Structured Data Extraction**: Uses OpenAI to extract project details, full
+  address, and relevant information from emails and attachments.
+- **Automated Tax Calculation**: Determines applicable taxes based on address
+  and ZIP+4.
+- **SharePoint Organization**: Automatically creates project folders and uploads
+  all attachments.
+- **Database Integration**: Saves all structured data into PostgreSQL (Supabase)
+  for further processing.
+- **Real-time Dashboard**: Built with Next.js to monitor processed emails, view
+  results, handle exceptions, and search historical data.
+- **Smart Tagging & Auditing**: All emails are tagged (Processed, Error,
+  Non-Proposal) with full audit trail.
 
 ## Technologies Used
 
-- **AI & Automation**: OpenAI (GPT-4o), n8n
-- **Backend**: Node.js, TypeScript, PostgreSQL / Supabase
-- **Frontend**: React, Next.js, Tailwind
-- **Infrastructure**: Docker, Vercel, cron jobs for reliability
+- **Automation Engine**: n8n (multiple workflows with loops and error handling)
+- **AI**: OpenAI (GPT-4o) for data extraction and complex reasoning
+- **Frontend**: Next.js, React, TypeScript, Tailwind
+- **Database**: Supabase (PostgreSQL)
+- **Integrations**: Microsoft Graph API, SharePoint, Azure App Permissions
+- **Infrastructure**: Self-hosted n8n, cron jobs, flag system with TTL
 
 ## Challenges and Learnings
 
-The main challenge was handling ambiguous emails and maintaining context across
-long threads. I solved this by implementing multi-step reasoning chains with
-OpenAI and adding a feedback loop that improves future classifications. Another
-key lesson was designing the system to be easily maintainable by non-technical
-users.
+- The inbox was shared, so I couldn't use standard Outlook nodes. I had to build
+  everything using Microsoft Graph API with HTTP requests and application-level
+  permissions in Azure.
+- To keep AI costs under control, I implemented an initial fast classification
+  layer in JavaScript (regex + lists) instead of using OpenAI for every email.
+- Processing large emails + attachments required careful workflow design with
+  multiple stages and loops to avoid timeouts and rate limits.
+- Created a custom flag system with TTL (time-to-live) to prevent duplicate
+  SharePoint folders when workflows overlap or retry.
+
+These technical constraints taught me how to build robust, cost-efficient, and
+production-grade automation systems that can handle real enterprise
+environments.
 
 ## Outcome
 
-- **70% reduction** in manual email processing time
-- Near elimination of data entry errors
-- Scalable solution that handles 5x more volume without additional staff
-- Client now processes hundreds of emails daily with minimal intervention
+- **Processing capacity increased dramatically**: From dozens of emails per day
+  manually to **200 emails in approximately 20 minutes**.
+- **Massive time savings**: Reduced manual inbox processing by **~85-90%**.
+- **Improved accuracy** and consistency in data extraction.
+- Full visibility and control through the custom dashboard.
+- Emails are automatically categorized and tagged for easy follow-up on
+  exceptions.
 
-This project showcases my ability to deliver production-ready AI automation
-systems that deliver clear, measurable ROI.
+This project is a clear example of how I combine n8n, OpenAI, and modern
+full-stack tools to deliver high-impact automations that generate real ROI for
+clients by replacing expensive manual labor with reliable intelligent systems.

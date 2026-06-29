@@ -2,49 +2,83 @@
 title: 'AI + AR Virtual Tailoring Platform MVP'
 publishedAt: '2025-02-10'
 summary:
-    'Delivered a full-stack MVP combining AI recommendations with AR try-on for
-    a fashion customization platform.'
+    'Delivered a mobile-first full-stack MVP that allows customers to get
+    precise body measurements via camera using AR + AI, dramatically reducing
+    in-store fitting time and increasing daily order capacity.'
 images:
-    - '/images/projects/tailoring/cover-01.jpg'
-    - '/images/projects/tailoring/ar-view.jpg'
-    - '/images/projects/tailoring/recommendations.jpg'
+    - '/images/projects/tailoring/ar-cam.png'
+    - '/images/projects/tailoring/suits.png'
+    - '/images/projects/tailoring/order-confirmed.png'
 team: []
 link: ''
 ---
 
 ## Overview
 
-Led the development of an end-to-end MVP for a virtual tailoring platform. The
-system allows users to customize garments and see realistic AR previews while
-receiving AI-driven style recommendations.
+I built a complete mobile-first MVP for a fashion customization platform.
+Customers can browse available suits, use their phone camera (or upload photos)
+to obtain accurate body measurements through AR + AI, customize their garment,
+complete payment, and receive an order ticket for in-store pickup or home
+delivery.
+
+The main goal was to eliminate or significantly reduce the need for in-person
+measurements at the store, saving time for both customers and staff while
+increasing the number of orders the store could process per day.
 
 ## Key Features
 
-- **AI Style Recommendations**: Personalized suggestions based on user
-  preferences and body type.
-- **AR Try-On Experience**: Real-time garment visualization using web
-  technologies.
-- **Full E-commerce Flow**: From customization to order placement with backend
-  integration.
-- **Admin Dashboard**: For managing products, orders, and analytics.
+- **AR-Powered Body Measurement**: Real-time camera-based measurement system
+  using AR to capture accurate body dimensions.
+- **AI-Assisted Recommendations**: Personalized suit and style suggestions based
+  on measurements and user preferences.
+- **Seamless Order Flow**: From measurement → customization → payment → order
+  confirmation in one continuous experience.
+- **Admin Dashboard**: Built for the store to manage products, view orders, and
+  track measurements.
+- **Delivery / Pickup Integration**: Automatic generation of tickets and
+  scheduling options.
 
 ## Technologies Used
 
-- **Frontend**: Next.js, React, TypeScript, Tailwind
-- **AR**: WebXR / Three.js
-- **AI**: OpenAI for recommendations
-- **Backend**: Node.js, Supabase, PostgreSQL
-- **Deployment**: Vercel + AWS services
+- **Frontend**: Next.js, React, TypeScript, Tailwind (mobile-first)
+- **AR & Computer Vision**: WebXR, Three.js, and specialized npm packages for
+  body tracking
+- **AI**: OpenAI for style recommendations and measurement validation
+- **Backend**: Node.js, Supabase (PostgreSQL)
+- **Payments**: Integrated payment gateway
+- **Deployment**: Vercel
 
 ## Challenges and Learnings
 
-Performance optimization for AR on mobile devices was the biggest hurdle.
-Implemented lazy loading, model compression, and caching strategies. Also
-learned how to balance AI creativity with practical fashion constraints.
+The biggest technical challenge was building a reliable AR + AI measurement
+system. There are very few well-documented npm packages available for this use
+case, so I had to rely heavily on experimentation, trial and error, and custom
+calibration logic.
+
+Key difficulties included:
+
+- Properly configuring camera parameters for different devices and lighting
+  conditions.
+- Accurate distance calibration and real-world measurement conversion.
+- Ensuring consistency and precision across thousands of possible user positions
+  and phone models.
+
+I implemented multiple fallback mechanisms and validation layers to improve
+reliability. This project taught me how to push the limits of web technologies
+in consumer-facing experiences where accuracy directly impacts user trust and
+business results.
 
 ## Outcome
 
-- Delivered production-ready MVP in **4 months**
-- **50% reduction** in time-to-market compared to initial estimates
-- Strong user engagement with the AR experience
-- Solid foundation for future iterations and investor demos
+- **Reduced measurement time** from ~15 minutes per in-store order to just a few
+  seconds of camera activation by the customer.
+- Significantly increased daily order processing capacity for the store.
+- Enabled remote/custom orders without requiring customers to visit the physical
+  location.
+- Delivered a complete production-ready MVP that served as a strong foundation
+  for investor presentations and future iterations.
+- High user engagement with the AR measurement feature.
+
+This project showcases my ability to deliver innovative full-stack MVPs that
+combine emerging technologies (AR + AI) with practical business outcomes —
+creating real efficiency gains and improved customer experience.

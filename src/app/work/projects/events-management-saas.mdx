@@ -1,46 +1,82 @@
 ---
-title: 'Events Management SaaS Platform'
+title: 'Events Management SaaS Platform - Error Monitoring & Reliability System'
 publishedAt: '2024-11-20'
 summary:
-    'Built backend architecture and key features for a scalable events
-    management SaaS serving multiple clients.'
+    'Joined an active production team on AWS Kubernetes and implemented a robust
+    client-side error logging, tracking, and notification system using AWS
+    Lambda and SES, significantly improving system reliability and debugging
+    speed.'
 images:
-    - '/images/projects/events/cover-01.jpg'
-    - '/images/projects/events/dashboard.jpg'
-    - '/images/projects/events/booking.jpg'
+    - '/images/projects/events/dashboard.png'
+    - '/images/projects/events/architecture.png'
 team: []
 link: ''
 ---
 
 ## Overview
 
-Developed the core backend and several frontend modules for a multi-tenant SaaS
-platform that handles event registration, ticketing, attendee management, and
-real-time updates.
+I joined an existing development team working on a live, multi-tenant SaaS
+platform for event and party management, including a complete admin dashboard.
+The platform was already in production, deployed on AWS with Kubernetes.
+
+My primary contribution was designing and implementing a comprehensive
+client-side error logging system that captures errors in real-time, securely
+sends them to AWS, stores them properly, and notifies the team via email when
+critical issues arise. This greatly improved the team's ability to monitor,
+debug, and maintain the platform under real production load.
 
 ## Key Features
 
-- **Real-time Booking System**: With availability checking and waitlists.
-- **Multi-tenant Architecture**: Isolated data per client/organizer.
-- **Analytics Dashboard**: Key metrics and attendee insights.
-- **Integrations**: Payment gateways, email notifications, and calendar sync.
+- **Client-Side Error Tracking**: Automatic capture of frontend and backend
+  errors with full context (user session, browser, stack trace, etc.).
+- **Secure Log Processing**: Safe handling and transmission of logs while
+  protecting sensitive client data.
+- **AWS Integration**: Logs stored centrally using AWS Lambda functions and
+  CloudWatch.
+- **Automated Notifications**: Real-time email alerts via AWS SES for critical
+  errors and system issues.
+- **Monitoring Dashboard**: Enhanced visibility into errors, frequency, and
+  impact for the operations team.
+- **Multi-tenant Support**: Logs properly isolated per client/organizer.
 
 ## Technologies Used
 
-- **Backend**: Node.js, TypeScript, PostgreSQL, AWS Lambda
-- **Frontend**: Angular / React (depending on module)
-- **Realtime**: Supabase Realtime
-- **Infrastructure**: Docker, CI/CD pipelines
+- **Infrastructure**: AWS (Lambda, SES, CloudWatch, Kubernetes, EKS)
+- **Backend**: Node.js, TypeScript
+- **Frontend**: Angular / React
+- **Logging & Monitoring**: Custom error boundary + AWS SDK
+- **Database**: PostgreSQL
+- **Deployment**: Kubernetes, CI/CD pipelines
 
 ## Challenges and Learnings
 
-Scaling for concurrent events with high traffic required careful database design
-and caching strategies. Implemented robust error handling and monitoring from
-day one.
+- Entering a large, complex legacy codebase already in production required rapid
+  onboarding and understanding of existing architecture while delivering value
+  quickly.
+- AWS documentation for certain logging patterns was insufficient, forcing deep
+  exploration of best practices for secure, scalable log handling in a
+  multi-tenant environment.
+- Ensuring logs were captured reliably without impacting performance, while
+  properly anonymizing or securing sensitive user data, was technically
+  demanding.
+- Building a system that works seamlessly with Kubernetes and existing
+  microservices added extra layers of complexity.
+
+This experience strengthened my ability to integrate into established teams and
+deliver production-critical improvements under tight constraints.
 
 ## Outcome
 
-- **40% reduction** in debugging and maintenance time
-- Improved system reliability under load
-- Enabled the client to manage significantly more events with the same team
-- Modernized legacy parts of the platform increasing overall performance
+- **~40-50% reduction** in time spent identifying and debugging production
+  issues.
+- Significantly improved system observability and reliability for high-traffic
+  events.
+- Faster incident response thanks to automated notifications and centralized
+  logging.
+- Reduced risk of undetected errors affecting end users and clients.
+- The platform could now support more concurrent events and users with greater
+  confidence and lower maintenance overhead.
+
+This project highlights my capability to work on complex, production-grade SaaS
+applications in cloud environments (AWS + Kubernetes) and deliver meaningful
+improvements to system reliability and team efficiency.

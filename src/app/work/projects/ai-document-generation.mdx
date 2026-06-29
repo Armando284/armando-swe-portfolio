@@ -2,51 +2,89 @@
 title: 'AI Document Generation System for Insurance'
 publishedAt: '2025-04-15'
 summary:
-    'Automated the creation of complex insurance documents using AI, reducing
-    generation time from hours to minutes (~80% faster).'
+    'Built an AI system that processes large volumes of unstructured documents
+    and generates professional insurance decision letters (Accept / Reject /
+    Negotiate) with practical recommendations, reducing processing time from
+    hours to minutes (~80% faster).'
 images:
-    - '/images/projects/ai-document/cover-01.jpg'
-    - '/images/projects/ai-document/template.jpg'
-    - '/images/projects/ai-document/output.jpg'
+    - '/images/projects/ai-document/new-case.png'
+    - '/images/projects/ai-document/letter.png'
+    - '/images/projects/ai-document/dashboard.png'
 team: []
 link: ''
 ---
 
 ## Overview
 
-I built an AI system that generates personalized insurance documents (policies,
-endorsements, claims reports) from structured client data and natural language
-inputs. This replaced a slow manual process that relied on copy-pasting and Word
-templates.
+I developed an AI-powered document processing and letter generation system for
+an insurance company. Field agents submit large amounts of unstructured
+information (standard forms, photos, emails, reports, and miscellaneous
+documents). The system ingests everything, analyzes it alongside the
+underwriter’s initial notes and conclusions, and generates a high-quality,
+professional decision letter with three possible outcomes: Accept, Reject, or
+Negotiate — plus practical recommendations for the underwriter.
+
+This eliminated the heavy cognitive load on underwriters, who previously had to
+manually process massive amounts of information while maintaining empathy,
+professionalism, and consistency under pressure.
 
 ## Key Features
 
-- **Natural Language Input**: Users describe needs in plain English; AI
-  generates full documents.
-- **Template Engine with AI**: Combines predefined legal templates with dynamic
-  AI content generation.
-- **Compliance & Review**: Automatic flagging of sensitive clauses and version
-  control.
-- **PDF Export + e-Signature Integration**: Ready-to-send documents.
+- **Multi-format Document Ingestion**: Handles PDFs, images, Word docs, and
+  free-form text from field agents.
+- **Intelligent Information Structuring**: Extracts and organizes relevant case
+  data while managing token limits efficiently.
+- **AI-Assisted Decision Support**: Generates complete decision letters based on
+  underwriter input, maintaining professional and empathetic tone.
+- **Three-Scenario Output**: Automatically produces Accept, Reject, and
+  Negotiate versions with clear justifications.
+- **Practical Recommendations**: Provides actionable advice for the underwriter
+  on next steps or negotiation points.
+- **Review Dashboard**: Built with Next.js, allowing underwriters to review,
+  edit, and approve AI-generated letters before sending.
+- **Asynchronous Processing**: Multiple OpenAI Assistants working in parallel
+  for better performance.
 
 ## Technologies Used
 
-- **AI**: OpenAI GPT-4o + prompt engineering
-- **Backend**: Node.js, TypeScript, Supabase
-- **Frontend**: React + Next.js
-- **Document Generation**: PDF-lib, React-PDF
-- **Automation**: n8n for data ingestion
+- **AI**: OpenAI Assistants + GPT-4o with advanced prompt engineering
+- **Frontend**: Next.js, React, TypeScript, Tailwind
+- **Backend**: Express.js (for heavy document processing)
+- **Database**: Supabase (PostgreSQL)
+- **Document Processing**: PDF parsing, OCR capabilities, file handling
+- **Architecture**: Separation of concerns between frontend and backend to
+  maintain performance
 
 ## Challenges and Learnings
 
-Legal accuracy was critical. I implemented a two-stage generation process
-(draft + validation) and created a review interface for quick human approval.
-Learned how to structure prompts for consistent, professional tone in regulated
-industries.
+- Processing very large and varied documents while keeping token usage under
+  control required careful chunking, summarization strategies, and structured
+  data extraction.
+- Maintaining consistent professional tone and empathy in legal/financial
+  communications was critical. I solved this using multi-stage prompting and
+  tone calibration.
+- Coordinating multiple OpenAI Assistants asynchronously and updating
+  information based on priority demanded robust state management and error
+  handling.
+- The backend had to be built with Express to handle heavy document processing
+  without slowing down the Next.js frontend.
+
+These challenges taught me how to design scalable AI systems for regulated
+industries where accuracy, compliance, and user experience are equally
+important.
 
 ## Outcome
 
-- **80% faster** document creation (hours → minutes)
-- Significant reduction in human error and compliance risk
-- Improved client experience with faster turnaround
-- Enabled the company to scale operations without hiring more underwriters
+- **~80% reduction** in document processing and letter generation time (from
+  several hours to minutes per case).
+- Underwriters can now handle significantly more cases per day without burnout
+  or quality loss.
+- Higher consistency and professionalism in client communications.
+- Reduced manual workload, allowing the team to focus on complex decisions
+  rather than data gathering and formatting.
+- Improved overall throughput and client satisfaction due to faster response
+  times.
+
+This project demonstrates my ability to build sophisticated AI systems that
+combine heavy document processing, intelligent reasoning, and user-friendly
+interfaces to deliver measurable efficiency gains in high-stakes environments.

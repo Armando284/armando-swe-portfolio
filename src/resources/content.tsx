@@ -256,18 +256,68 @@ const gallery: Gallery = {
 	title: `Project Screenshots – ${person.name}`,
 	description: `Screenshots and visuals from recent projects`,
 	images: [
-		// Replace these placeholders with your real project images later
+		// AI Document Generation
 		{
-			src: '/images/gallery/project-1.jpg',
+			src: '/images/projects/ai-document/new-case.png',
+			alt: 'AI Document Generation - New Case',
+			orientation: 'horizontal',
+		},
+		{
+			src: '/images/projects/ai-document/letter.png',
+			alt: 'AI Document Generation - Letter View',
+			orientation: 'vertical',
+		},
+		{
+			src: '/images/projects/ai-document/dashboard.png',
+			alt: 'AI Document Generation Dashboard',
+			orientation: 'horizontal',
+		},
+
+		// AI Email Automation
+		{
+			src: '/images/projects/ai-email/n8n-workflow.png',
+			alt: 'AI Email Automation - n8n Workflow',
+			orientation: 'horizontal',
+		},
+		{
+			src: '/images/projects/ai-email/dashboard.png',
 			alt: 'AI Email Automation Dashboard',
 			orientation: 'horizontal',
 		},
 		{
-			src: '/images/gallery/project-2.jpg',
-			alt: 'Virtual Tailoring App',
+			src: '/images/projects/ai-email/project-details.png',
+			alt: 'AI Email Automation - Project Details',
 			orientation: 'vertical',
 		},
-		// Add more as needed or set display false in layout if you don't want gallery
+
+		// Virtual Tailoring Platform
+		{
+			src: '/images/projects/tailoring/ar-cam.png',
+			alt: 'Virtual Tailoring Platform - AR Camera',
+			orientation: 'vertical',
+		},
+		{
+			src: '/images/projects/tailoring/suits.png',
+			alt: 'Virtual Tailoring Platform - Suits Preview',
+			orientation: 'horizontal',
+		},
+		{
+			src: '/images/projects/tailoring/order-confirmed.png',
+			alt: 'Virtual Tailoring Platform - Order Confirmed',
+			orientation: 'horizontal',
+		},
+
+		// Events Management SaaS
+		{
+			src: '/images/projects/events/dashboard.png',
+			alt: 'Events Management SaaS Dashboard',
+			orientation: 'horizontal',
+		},
+		{
+			src: '/images/projects/events/architecture.png',
+			alt: 'Events Management SaaS Architecture Diagram',
+			orientation: 'vertical',
+		},
 	],
 }
 
