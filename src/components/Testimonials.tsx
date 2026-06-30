@@ -29,7 +29,7 @@ export function Testimonials({
 			fillWidth
 			gap="l"
 			paddingX="m"
-			paddingY="xl">
+			paddingBottom="l">
 			{/* Header */}
 			<Column
 				gap="8"
