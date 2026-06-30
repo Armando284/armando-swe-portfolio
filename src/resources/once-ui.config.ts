@@ -142,7 +142,7 @@ const effects: EffectsConfig = {
 };
 
 const mailchimp: MailchimpConfig = {
-  action: "https://url/subscribe/post?parameters",
+  action: "https://buttondown.com/api/emails/embed-subscribe/arman2p284",
   effects: {
     mask: {
       cursor: true,

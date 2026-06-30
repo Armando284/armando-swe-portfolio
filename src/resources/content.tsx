@@ -30,7 +30,7 @@ const newsletter: Newsletter = {
 	title: <>Subscribe to {person.firstName}'s Newsletter</>,
 	description: (
 		<>
-			Weekly insights on AI automation, SaaS development, and building
+			Monthly insights on AI automation, SaaS development, and building
 			efficient systems that drive real business results.
 		</>
 	),
