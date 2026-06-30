@@ -23,6 +23,7 @@ import {
   PiImageDuotone,
   PiOpenAiLogo,
   PiQuotes,
+  PiBriefcaseDuotone,
 } from "react-icons/pi";
 
 import {
@@ -82,6 +83,7 @@ export const iconLibrary: Record<string, IconType> = {
   typescript: SiTypescript,
   medium: SiMedium,
   Quotes: PiQuotes,
+  briefcase: PiBriefcaseDuotone,
 };
 
 export type IconLibrary = typeof iconLibrary;
