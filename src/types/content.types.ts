@@ -255,3 +255,39 @@ export interface Testimonials {
     image: string;
   }>
 }
+
+/**
+ * Gigs/Services page configuration.
+ * @description Configuration for the Gigs/Services page, including metadata, navigation label, and gig listings.
+ */
+export interface Gigs extends BasePageConfig {
+  /** List of available gigs/services */
+  items: Array<{
+    /** Unique slug for the gig */
+    slug: string;
+    /** Title of the gig */
+    title: string;
+    /** Short description for cards */
+    shortDescription: string;
+    /** Full detailed description */
+    fullDescription: React.ReactNode;
+    /** Pricing type: 'fixed' or 'range' */
+    pricingType: 'fixed' | 'range';
+    /** Fixed price (if pricingType is 'fixed') */
+    price?: number;
+    /** Price range from (if pricingType is 'range') */
+    priceFrom?: number;
+    /** Price range to (if pricingType is 'range') */
+    priceTo?: number;
+    /** Currency symbol */
+    currency?: string;
+    /** Delivery time description */
+    deliveryTime: string;
+    /** Array of technologies used */
+    technologies: string[];
+    /** Whether this gig is featured */
+    featured?: boolean;
+    /** Contact link (email or booking) */
+    contactLink?: string;
+  }>;
+}

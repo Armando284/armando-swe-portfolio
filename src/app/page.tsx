@@ -16,6 +16,7 @@ import { Mailchimp } from '@/components'
 import { Projects } from '@/components/work/Projects'
 import { Posts } from '@/components/blog/Posts'
 import { Testimonials } from '@/components/Testimonials'
+import { GigsSection } from '@/components/gigs/GigsSection'
 import { testimonials } from '@/resources/content'
 
 export async function generateMetadata() {
@@ -179,6 +180,16 @@ export default function Home() {
 				</Column>
 			)}
 			<Projects range={[2]} />
+			{routes['/gigs'] && (
+				<RevealFx translateY="16" delay={0.4}>
+					<GigsSection
+						variant="homepage"
+						featuredOnly
+						limit={4}
+						columns="2"
+					/>
+				</RevealFx>
+			)}
 			{testimonials.display && (
 				<Testimonials items={testimonials.feedbacks} />
 			)}
