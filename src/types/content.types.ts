@@ -33,6 +33,8 @@ export type Person = {
    * See: https://www.iana.org/assignments/language-subtag-registry
    */
   locale?: string;
+  /** Phone number */
+  phone?: string;
 };
 
 /**

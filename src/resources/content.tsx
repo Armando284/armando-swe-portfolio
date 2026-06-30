@@ -17,11 +17,12 @@ const person: Person = {
 	lastName: 'Peña Tamayo',
 	name: `Armando Peña Tamayo`,
 	role: 'Full-Stack Engineer',
-	avatar: '/images/avatar.webp', // Replace with your actual avatar
-	email: 'arman2p284@gmail.com', // Update with real email
+	avatar: '/images/avatar.webp', 
+	email: 'arman2p284@gmail.com', 
 	location: 'America/New_York', // IANA timezone - adjust if needed (you can use Miami for perception)
 	languages: ['English', 'Spanish'],
 	locale: 'en',
+	phone: '+5351705953',
 }
 
 const newsletter: Newsletter = {
@@ -58,6 +59,12 @@ const social: Social = [
 		name: 'Email',
 		icon: 'email',
 		link: `mailto:${person.email}`,
+		essential: true,
+	},
+	{
+		name: 'WhatsApp',
+		icon: 'whatsapp',
+		link: `https://wa.me/${person.phone}`,
 		essential: true,
 	},
 ]
