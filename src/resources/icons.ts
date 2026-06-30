@@ -12,6 +12,7 @@ import {
   HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineRocketLaunch,
+  HiChatBubbleLeftEllipsis,
 } from "react-icons/hi2";
 
 import {
@@ -21,6 +22,7 @@ import {
   PiBookBookmarkDuotone,
   PiImageDuotone,
   PiOpenAiLogo,
+  PiQuotes,
 } from "react-icons/pi";
 
 import {
@@ -61,6 +63,7 @@ export const iconLibrary: Record<string, IconType> = {
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
   document: HiOutlineDocument,
   rocket: HiOutlineRocketLaunch,
+  quote: HiChatBubbleLeftEllipsis,
   javascript: SiJavascript,
   nextjs: SiNextdotjs,
   supabase: SiSupabase,
@@ -78,6 +81,7 @@ export const iconLibrary: Record<string, IconType> = {
   angular: SiAngular,
   typescript: SiTypescript,
   medium: SiMedium,
+  Quotes: PiQuotes,
 };
 
 export type IconLibrary = typeof iconLibrary;

@@ -336,7 +336,7 @@ const testimonials: Testimonials = {
 			name: 'Betty Guiterrez',
 			job: 'Team Leader',
 			message:
-				"I had the pleasure of working with Armando on a recent project, and I am continually impressed by his exceptional skills and dedication. His expertise in web development has been instrumental in ensuring the maintainability of the code. Armando's willingness to share knowledge and provide constructive feedback has contributed to a collaborative and supportive team environment.",
+				"I had the pleasure of working with Armando, and I am continually impressed by his exceptional skills and dedication. His expertise has been instrumental in ensuring the maintainability of the code. He's willingness to share knowledge and provide constructive feedback has contributed to a collaborative and supportive team environment.",
 			image: '/images/feedback/betty-guiterrez.jpg',
 		},
 	],

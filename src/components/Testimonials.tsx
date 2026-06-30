@@ -1,21 +1,24 @@
+'use client'
+
 import { Avatar, Card, Column, Heading, Row, Text } from '@once-ui-system/core'
 import type { Testimonials } from '@/types'
+import { useState } from 'react'
+import { iconLibrary } from '@/resources/icons'
 
 export type TestimonialsProps = {
-	/** Feedback items to render in the section */
 	items: Testimonials['feedbacks']
-	/** Section headline shown above the list */
 	title?: string
-	/** Optional section description text */
 	description?: string
 }
 
 export function Testimonials({
 	items,
-	title = 'Client & Team Feedback',
+	title = 'Testimonials',
 	description,
 }: TestimonialsProps) {
-	if (!items.length) {
+	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+
+	if (!items || items.length === 0) {
 		return null
 	}
 
@@ -25,65 +28,111 @@ export function Testimonials({
 			aria-labelledby="testimonials-heading"
 			fillWidth
 			gap="l"
-			padding="0">
+			paddingX="m"
+			paddingY="xl">
+			{/* Header */}
 			<Column
 				gap="8"
-				as="header">
+				as="header"
+				style={{ alignItems: 'center', textAlign: 'center' }}>
 				<Heading
 					as="h2"
 					id="testimonials-heading"
 					variant="heading-strong-xl">
 					{title}
 				</Heading>
-				{description ? (
-					<Text
-						variant="body-default-s"
-						onBackground="neutral-weak">
-						{description}
-					</Text>
-				) : (
-					<Text
-						variant="body-default-s"
-						onBackground="neutral-weak">
-						Real feedback from collaborators and teammates who value
-						thoughtful engineering and strong product focus.
-					</Text>
-				)}
+				<Text
+					variant="body-default-s"
+					onBackground="neutral-weak"
+					style={{ maxWidth: '620px' }}>
+					{description ||
+						'Feedback from collaborators and teammates who value reliable engineering and strong collaboration.'}
+				</Text>
 			</Column>
 
-			<Row
-				fillWidth
-				gap="24"
-				wrap>
-				{items.map((item) => (
+			{/* Grid de Testimonials */}
+			<div
+				style={{
+					display: 'grid',
+					gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))',
+					gap: '32px',
+					width: '100%',
+					justifyContent: 'center',
+					marginTop: '32px',
+				}}>
+				{items.map((item, index) => (
 					<Card
-						key={`${item.name}-${item.job}`}
+						key={`${item.name}-${index}`}
 						as="article"
 						direction="column"
 						fillWidth
-						radius="l-4"
+						radius="xl"
 						border="neutral-alpha-weak"
 						background="surface"
-						shadow="micro"
-						padding="6"
+						padding="8"
 						style={{
 							minWidth: 0,
-							flex: '1 1 min(100%, 520px)',
-							maxWidth: '520px',
-						}}>
+							transition:
+								'all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)',
+							transform:
+								hoveredIndex === index
+									? 'translateY(-12px)'
+									: 'none',
+							boxShadow:
+								hoveredIndex === index
+									? '0 25px 60px -15px rgba(0, 0, 0, 0.18)'
+									: '0 10px 35px -15px rgba(0, 0, 0, 0.08)',
+							border:
+								hoveredIndex === index
+									? '1px solid var(--neutral-alpha-medium)'
+									: '1px solid var(--neutral-alpha-weak)',
+						}}
+						onMouseEnter={() => setHoveredIndex(index)}
+						onMouseLeave={() => setHoveredIndex(null)}>
 						<Column
-							gap="16"
-							fillWidth>
+							gap={2}
+							fillWidth
+							style={{
+								alignItems: 'end',
+								justifyItems: 'space-between',
+								flex: 1,
+							}}>
+							<iconLibrary.Quotes
+								size={48}
+								style={{
+									color: 'var(--neutral-alpha-medium)',
+									opacity: 0.75,
+								}}
+							/>
+
+							<Text
+								as="blockquote"
+								variant="body-default-s"
+								onBackground="neutral-strong"
+								style={{
+									lineHeight: '1.8',
+									fontStyle: 'italic',
+									paddingLeft: '8px',
+									borderLeft:
+										'3px solid var(--neutral-alpha-medium)',
+								}}>
+								{item.message}
+							</Text>
+
 							<Row
 								vertical="center"
-								gap="16">
+								gap="16"
+								fillWidth
+								style={{ marginTop: 'auto' }}>
 								<Avatar
 									src={item.image}
-									alt={`${item.name} profile picture`}
-									size="m"
+									size="l"
+									style={{
+										border: '2.5px solid var(--neutral-alpha-weak)',
+									}}
 								/>
-								<Column gap="4">
-									<Text variant="label-strong-s">
+								<Column gap="2">
+									<Text variant="label-strong-m">
 										{item.name}
 									</Text>
 									<Text
@@ -93,17 +142,10 @@ export function Testimonials({
 									</Text>
 								</Column>
 							</Row>
-
-							<Text
-								as="blockquote"
-								variant="body-default-s"
-								onBackground="neutral-strong">
-								{item.message}
-							</Text>
 						</Column>
 					</Card>
 				))}
-			</Row>
+			</div>
 		</Column>
 	)
 }
