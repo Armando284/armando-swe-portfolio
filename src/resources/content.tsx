@@ -17,7 +17,7 @@ const person: Person = {
 	role: 'Full-Stack Engineer',
 	avatar: '/images/avatar.webp', // Replace with your actual avatar
 	email: 'arman2p284@gmail.com', // Update with real email
-	location: 'America/Havana', // IANA timezone - adjust if needed (you can use Miami for perception)
+	location: 'America/New_York', // IANA timezone - adjust if needed (you can use Miami for perception)
 	languages: ['English', 'Spanish'],
 	locale: 'en',
 }
