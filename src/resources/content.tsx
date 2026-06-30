@@ -1,6 +1,7 @@
 import {
 	About,
 	Blog,
+	Testimonials,
 	Gallery,
 	Home,
 	Newsletter,
@@ -321,4 +322,34 @@ const gallery: Gallery = {
 	],
 }
 
-export { person, social, newsletter, home, about, blog, work, gallery }
+const testimonials: Testimonials = {
+	display: true,
+	feedbacks: [
+		{
+			name: 'Reynier Perez',
+			job: 'Software Engineer',
+			message:
+				"Armando is always available to give aid and effective ideas for the good of the project. He is an excellent teammate you won't regret working with!",
+			image: '/images/feedback/reynier-perez.jpg',
+		},
+		{
+			name: 'Betty Guiterrez',
+			job: 'Team Leader',
+			message:
+				"I had the pleasure of working with Armando on a recent project, and I am continually impressed by his exceptional skills and dedication. His expertise in web development has been instrumental in ensuring the maintainability of the code. Armando's willingness to share knowledge and provide constructive feedback has contributed to a collaborative and supportive team environment.",
+			image: '/images/feedback/betty-guiterrez.jpg',
+		},
+	],
+}
+
+export {
+	person,
+	social,
+	newsletter,
+	home,
+	about,
+	blog,
+	work,
+	gallery,
+	testimonials,
+}
