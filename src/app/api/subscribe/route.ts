@@ -3,7 +3,17 @@ import { NextRequest, NextResponse } from "next/server";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function parseButtondownResponse(html: string) {
+function parseButtondownResponse(html: string, finalUrl: string) {
+  // Prioridad 1: Estado en la URL (lo más confiable)
+  if (finalUrl.includes("state=confirmed_subscription") ||
+    finalUrl.includes("state=subscribed")) {
+    return {
+      success: true,
+      message: "Thanks for subscribing! Check your inbox to confirm your subscription.",
+    };
+  }
+
+  // Prioridad 2: Patrones existentes (para respuestas sin redirect)
   const errorMatch = html.match(/message-box--error[^>]*>\s*([\s\S]*?)<\/div>/);
   if (errorMatch) {
     return {
@@ -13,16 +23,14 @@ function parseButtondownResponse(html: string) {
   }
 
   const infoMatch = html.match(/message-box--info[^>]*>\s*([\s\S]*?)<\/div>/);
-  if (infoMatch || html.includes("Verify Your Subscription")) {
+  if (infoMatch) {
     return {
       success: true,
-      message:
-        infoMatch?.[1].replace(/\s+/g, " ").trim() ||
-        "Thanks for subscribing! Check your inbox to confirm your subscription.",
+      message: infoMatch[1].replace(/\s+/g, " ").trim(),
     };
   }
 
-  if (/thank you|you(?:'|&#x27;)re subscribed|successfully subscribed/i.test(html)) {
+  if (/thank you|you(?:'|&#x27;)re subscribed|successfully subscribed|confirmed/i.test(html)) {
     return {
       success: true,
       message: "Thanks for subscribing! Check your inbox to confirm your subscription.",
@@ -66,9 +74,9 @@ export async function POST(request: NextRequest) {
       },
       body: formData.toString(),
     });
-
+    console.log("Buttondown API Response Status:", response);
     const html = await response.text();
-    const result = parseButtondownResponse(html);
+    const result = parseButtondownResponse(html, response.url);
 
     if (!result.success) {
       return NextResponse.json(

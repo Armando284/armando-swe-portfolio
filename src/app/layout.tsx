@@ -1,54 +1,62 @@
-import "@once-ui-system/core/css/styles.css";
-import "@once-ui-system/core/css/tokens.css";
-import "@/resources/custom.css";
+import '@once-ui-system/core/css/styles.css'
+import '@once-ui-system/core/css/tokens.css'
+import '@/resources/custom.css'
 
-import classNames from "classnames";
+import classNames from 'classnames'
 
 import {
-  Background,
-  Column,
-  Flex,
-  Meta,
-  opacity,
-  RevealFx,
-  SpacingToken,
-} from "@once-ui-system/core";
-import { Footer, Header, RouteGuard, Providers } from "@/components";
-import { baseURL, effects, fonts, style, dataStyle, home, person } from "@/resources";
+	Background,
+	Column,
+	Flex,
+	Meta,
+	opacity,
+	RevealFx,
+	SpacingToken,
+} from '@once-ui-system/core'
+import { Footer, Header, RouteGuard, Providers } from '@/components'
+import {
+	baseURL,
+	effects,
+	fonts,
+	style,
+	dataStyle,
+	home,
+	person,
+} from '@/resources'
+import { Toaster } from 'react-hot-toast'
 
 export async function generateMetadata() {
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
+	return Meta.generate({
+		title: home.title,
+		description: home.description,
+		baseURL: baseURL,
+		path: home.path,
+		image: home.image,
+	})
 }
 
 export default async function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode
 }>) {
-  return (
-    <Flex
-      suppressHydrationWarning
-      as="html"
-      lang={person.locale ?? "en"}
-      fillWidth
-      className={classNames(
-        fonts.heading.variable,
-        fonts.body.variable,
-        fonts.label.variable,
-        fonts.code.variable,
-      )}
-    >
-      <head>
-        <script
-          id="theme-init"
-          dangerouslySetInnerHTML={{
-            __html: `
+	return (
+		<Flex
+			suppressHydrationWarning
+			as="html"
+			lang={person.locale ?? 'en'}
+			fillWidth
+			className={classNames(
+				fonts.heading.variable,
+				fonts.body.variable,
+				fonts.label.variable,
+				fonts.code.variable,
+			)}>
+			<head>
+				<script
+					id="theme-init"
+					dangerouslySetInnerHTML={{
+						__html: `
               (function() {
                 try {
                   const root = document.documentElement;
@@ -56,17 +64,17 @@ export default async function RootLayout({
                   
                   // Set defaults from config
                   const config = ${JSON.stringify({
-                    brand: style.brand,
-                    accent: style.accent,
-                    neutral: style.neutral,
-                    solid: style.solid,
-                    "solid-style": style.solidStyle,
-                    border: style.border,
-                    surface: style.surface,
-                    transition: style.transition,
-                    scaling: style.scaling,
-                    "viz-style": dataStyle.variant,
-                  })};
+						brand: style.brand,
+						accent: style.accent,
+						neutral: style.neutral,
+						solid: style.solid,
+						'solid-style': style.solidStyle,
+						border: style.border,
+						surface: style.surface,
+						transition: style.transition,
+						scaling: style.scaling,
+						'viz-style': dataStyle.variant,
+					})};
                   
                   // Apply default values
                   Object.entries(config).forEach(([key, value]) => {
@@ -100,71 +108,106 @@ export default async function RootLayout({
                 }
               })();
             `,
-          }}
-        />
-      </head>
-      <Providers>
-        <Column
-          as="body"
-          background="page"
-          fillWidth
-          style={{ minHeight: "100vh" }}
-          margin="0"
-          padding="0"
-          horizontal="center"
-        >
-          <RevealFx fill position="absolute">
-            <Background
-              mask={{
-                x: effects.mask.x,
-                y: effects.mask.y,
-                radius: effects.mask.radius,
-                cursor: effects.mask.cursor,
-              }}
-              gradient={{
-                display: effects.gradient.display,
-                opacity: effects.gradient.opacity as opacity,
-                x: effects.gradient.x,
-                y: effects.gradient.y,
-                width: effects.gradient.width,
-                height: effects.gradient.height,
-                tilt: effects.gradient.tilt,
-                colorStart: effects.gradient.colorStart,
-                colorEnd: effects.gradient.colorEnd,
-              }}
-              dots={{
-                display: effects.dots.display,
-                opacity: effects.dots.opacity as opacity,
-                size: effects.dots.size as SpacingToken,
-                color: effects.dots.color,
-              }}
-              grid={{
-                display: effects.grid.display,
-                opacity: effects.grid.opacity as opacity,
-                color: effects.grid.color,
-                width: effects.grid.width,
-                height: effects.grid.height,
-              }}
-              lines={{
-                display: effects.lines.display,
-                opacity: effects.lines.opacity as opacity,
-                size: effects.lines.size as SpacingToken,
-                thickness: effects.lines.thickness,
-                angle: effects.lines.angle,
-                color: effects.lines.color,
-              }}
-            />
-          </RevealFx>
-          <Flex fillWidth minHeight="16" s={{ hide: true }} />
-          <Header />
-          <Flex zIndex={0} fillWidth padding="l" horizontal="center" flex={1}>
-            <Flex horizontal="center" fillWidth minHeight="0">
-              <RouteGuard>{children}</RouteGuard>
-            </Flex>
-          </Flex>
-          <Footer />
-        </Column>
-      </Providers>
-    </Flex>
-  );
+					}}
+				/>
+			</head>
+			<Providers>
+				<Column
+					as="body"
+					background="page"
+					fillWidth
+					style={{ minHeight: '100vh' }}
+					margin="0"
+					padding="0"
+					horizontal="center">
+					<RevealFx
+						fill
+						position="absolute">
+						<Background
+							mask={{
+								x: effects.mask.x,
+								y: effects.mask.y,
+								radius: effects.mask.radius,
+								cursor: effects.mask.cursor,
+							}}
+							gradient={{
+								display: effects.gradient.display,
+								opacity: effects.gradient.opacity as opacity,
+								x: effects.gradient.x,
+								y: effects.gradient.y,
+								width: effects.gradient.width,
+								height: effects.gradient.height,
+								tilt: effects.gradient.tilt,
+								colorStart: effects.gradient.colorStart,
+								colorEnd: effects.gradient.colorEnd,
+							}}
+							dots={{
+								display: effects.dots.display,
+								opacity: effects.dots.opacity as opacity,
+								size: effects.dots.size as SpacingToken,
+								color: effects.dots.color,
+							}}
+							grid={{
+								display: effects.grid.display,
+								opacity: effects.grid.opacity as opacity,
+								color: effects.grid.color,
+								width: effects.grid.width,
+								height: effects.grid.height,
+							}}
+							lines={{
+								display: effects.lines.display,
+								opacity: effects.lines.opacity as opacity,
+								size: effects.lines.size as SpacingToken,
+								thickness: effects.lines.thickness,
+								angle: effects.lines.angle,
+								color: effects.lines.color,
+							}}
+						/>
+					</RevealFx>
+					<Flex
+						fillWidth
+						minHeight="16"
+						s={{ hide: true }}
+					/>
+					<Header />
+					<Flex
+						zIndex={0}
+						fillWidth
+						padding="l"
+						horizontal="center"
+						flex={1}>
+						<Flex
+							horizontal="center"
+							fillWidth
+							minHeight="0">
+							<RouteGuard>{children}</RouteGuard>
+						</Flex>
+					</Flex>
+					<Footer />
+					<Toaster
+						position="bottom-center"
+						reverseOrder={false}
+						toastOptions={{
+							success: {
+								duration: 5000,
+								style: {
+									background: '#1f2937',
+									color: '#fff',
+									border: '1px solid #22c55e',
+								},
+							},
+							error: {
+								duration: 6000,
+								style: {
+									background: '#1f2937',
+									color: '#fff',
+									border: '1px solid #ef4444',
+								},
+							},
+						}}
+					/>
+				</Column>
+			</Providers>
+		</Flex>
+	)
 }
