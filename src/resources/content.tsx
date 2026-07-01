@@ -17,8 +17,8 @@ const person: Person = {
 	lastName: 'Peña Tamayo',
 	name: `Armando Peña Tamayo`,
 	role: 'Full-Stack Engineer',
-	avatar: '/images/avatar.webp', 
-	email: 'arman2p284@gmail.com', 
+	avatar: '/images/avatar.webp',
+	email: 'arman2p284@gmail.com',
 	location: 'America/New_York', // IANA timezone - adjust if needed (you can use Miami for perception)
 	languages: ['English', 'Spanish'],
 	locale: 'en',
@@ -71,7 +71,7 @@ const social: Social = [
 
 const home: Home = {
 	path: '/',
-	image: '/images/og/home.jpg',
+	image: '/images/og/home.png',
 	label: 'Home',
 	title: `${person.name}'s Portfolio`,
 	description: `Full-Stack Engineer specializing in AI Automation and SaaS MVPs`,
@@ -359,17 +359,25 @@ const gigs: Gigs = {
 		{
 			slug: 'ai-automation-with-n8n-openai',
 			title: 'AI Automation with n8n + OpenAI',
-			shortDescription: 'Automate your business processes with intelligent workflows using n8n and OpenAI',
+			shortDescription:
+				'Automate your business processes with intelligent workflows using n8n and OpenAI',
 			fullDescription: (
 				<>
-					<p>I'll build custom AI-powered automation workflows that replace manual, repetitive tasks with intelligent systems.</p>
+					<p>
+						I'll build custom AI-powered automation workflows that
+						replace manual, repetitive tasks with intelligent
+						systems.
+					</p>
 					<ul>
 						<li>Email processing and auto-response systems</li>
 						<li>Document generation and data extraction</li>
 						<li>CRM integration and data synchronization</li>
 						<li>Custom webhook integrations between your tools</li>
 					</ul>
-					<p>Perfect for businesses looking to reduce operational costs and save 10+ hours per week on manual tasks.</p>
+					<p>
+						Perfect for businesses looking to reduce operational
+						costs and save 10+ hours per week on manual tasks.
+					</p>
 				</>
 			),
 			pricingType: 'range',
@@ -377,25 +385,45 @@ const gigs: Gigs = {
 			priceTo: 800,
 			currency: 'USD',
 			deliveryTime: '1-2 weeks',
-			technologies: ['n8n', 'OpenAI', 'Node.js', 'Webhooks', 'API Integration'],
+			technologies: [
+				'n8n',
+				'OpenAI',
+				'Node.js',
+				'Webhooks',
+				'API Integration',
+			],
 			featured: true,
 			contactLink: `mailto:${person.email}?subject=Inquiry: AI Automation with n8n + OpenAI`,
 		},
 		{
 			slug: 'full-stack-mvp-development',
 			title: 'Full-Stack MVP Development',
-			shortDescription: 'Build production-ready MVPs with Next.js, Supabase, and modern tech stack',
+			shortDescription:
+				'Build production-ready MVPs with Next.js, Supabase, and modern tech stack',
 			fullDescription: (
 				<>
-					<p>I'll develop a complete, production-ready MVP from concept to deployment in 4-8 weeks.</p>
+					<p>
+						I'll develop a complete, production-ready MVP from
+						concept to deployment in 4-8 weeks.
+					</p>
 					<ul>
-						<li>Full-stack development with Next.js 14+ and TypeScript</li>
-						<li>Database design and implementation with Supabase</li>
-						<li>Authentication, authorization, and user management</li>
+						<li>
+							Full-stack development with Next.js 14+ and
+							TypeScript
+						</li>
+						<li>
+							Database design and implementation with Supabase
+						</li>
+						<li>
+							Authentication, authorization, and user management
+						</li>
 						<li>Responsive UI with modern design systems</li>
 						<li>Deployment and CI/CD setup</li>
 					</ul>
-					<p>Ideal for startups and entrepreneurs who need a validated product quickly without sacrificing quality.</p>
+					<p>
+						Ideal for startups and entrepreneurs who need a
+						validated product quickly without sacrificing quality.
+					</p>
 				</>
 			),
 			pricingType: 'range',
@@ -403,24 +431,37 @@ const gigs: Gigs = {
 			priceTo: 4000,
 			currency: 'USD',
 			deliveryTime: '4-8 weeks',
-			technologies: ['Next.js', 'TypeScript', 'Supabase', 'Tailwind CSS', 'PostgreSQL'],
+			technologies: [
+				'Next.js',
+				'TypeScript',
+				'Supabase',
+				'Tailwind CSS',
+				'PostgreSQL',
+			],
 			featured: true,
 			contactLink: `mailto:${person.email}?subject=Inquiry: Full-Stack MVP Development`,
 		},
 		{
 			slug: 'email-document-automation',
 			title: 'Email & Document Automation',
-			shortDescription: 'Streamline email workflows and automate document generation with AI',
+			shortDescription:
+				'Streamline email workflows and automate document generation with AI',
 			fullDescription: (
 				<>
-					<p>I'll create intelligent systems to handle your email communications and document needs automatically.</p>
+					<p>
+						I'll create intelligent systems to handle your email
+						communications and document needs automatically.
+					</p>
 					<ul>
 						<li>Smart email categorization and routing</li>
 						<li>Automated document generation from templates</li>
 						<li>PDF creation and management workflows</li>
 						<li>Email campaign automation and follow-ups</li>
 					</ul>
-					<p>Great for teams drowning in administrative work who need to scale their operations efficiently.</p>
+					<p>
+						Great for teams drowning in administrative work who need
+						to scale their operations efficiently.
+					</p>
 				</>
 			),
 			pricingType: 'range',
@@ -428,17 +469,27 @@ const gigs: Gigs = {
 			priceTo: 600,
 			currency: 'USD',
 			deliveryTime: '1-2 weeks',
-			technologies: ['n8n', 'OpenAI', 'Node.js', 'PDF Generation', 'Email APIs'],
+			technologies: [
+				'n8n',
+				'OpenAI',
+				'Node.js',
+				'PDF Generation',
+				'Email APIs',
+			],
 			featured: false,
 			contactLink: `mailto:${person.email}?subject=Inquiry: Email & Document Automation`,
 		},
 		{
 			slug: 'angular-react-maintenance',
 			title: 'Angular & React Maintenance',
-			shortDescription: 'Maintain, refactor, and improve existing Angular or React applications',
+			shortDescription:
+				'Maintain, refactor, and improve existing Angular or React applications',
 			fullDescription: (
 				<>
-					<p>I'll help you maintain and improve your existing frontend applications with modern best practices.</p>
+					<p>
+						I'll help you maintain and improve your existing
+						frontend applications with modern best practices.
+					</p>
 					<ul>
 						<li>Bug fixes and performance optimization</li>
 						<li>Code refactoring and technical debt reduction</li>
@@ -446,7 +497,10 @@ const gigs: Gigs = {
 						<li>Feature additions and UI improvements</li>
 						<li>Testing and quality assurance</li>
 					</ul>
-					<p>Perfect for teams with legacy codebases that need ongoing maintenance or modernization.</p>
+					<p>
+						Perfect for teams with legacy codebases that need
+						ongoing maintenance or modernization.
+					</p>
 				</>
 			),
 			pricingType: 'range',
@@ -454,25 +508,41 @@ const gigs: Gigs = {
 			priceTo: 150,
 			currency: 'USD',
 			deliveryTime: 'Hourly / Retainer',
-			technologies: ['Angular', 'React', 'TypeScript', 'JavaScript', 'Testing'],
+			technologies: [
+				'Angular',
+				'React',
+				'TypeScript',
+				'JavaScript',
+				'Testing',
+			],
 			featured: false,
 			contactLink: `mailto:${person.email}?subject=Inquiry: Angular & React Maintenance`,
 		},
 		{
 			slug: 'api-integration-backend-development',
 			title: 'API Integration & Backend Development',
-			shortDescription: 'Build robust APIs and integrate third-party services for your applications',
+			shortDescription:
+				'Build robust APIs and integrate third-party services for your applications',
 			fullDescription: (
 				<>
-					<p>I'll develop scalable backend solutions and integrate your applications with external services.</p>
+					<p>
+						I'll develop scalable backend solutions and integrate
+						your applications with external services.
+					</p>
 					<ul>
 						<li>RESTful and GraphQL API development</li>
-						<li>Third-party service integrations (Stripe, Twilio, etc.)</li>
+						<li>
+							Third-party service integrations (Stripe, Twilio,
+							etc.)
+						</li>
 						<li>Database design and optimization</li>
 						<li>Authentication and security implementation</li>
 						<li>Performance monitoring and logging</li>
 					</ul>
-					<p>Ideal for projects that need solid backend architecture or complex integrations.</p>
+					<p>
+						Ideal for projects that need solid backend architecture
+						or complex integrations.
+					</p>
 				</>
 			),
 			pricingType: 'range',
@@ -480,7 +550,13 @@ const gigs: Gigs = {
 			priceTo: 1200,
 			currency: 'USD',
 			deliveryTime: '2-4 weeks',
-			technologies: ['Node.js', 'Express', 'PostgreSQL', 'REST APIs', 'GraphQL'],
+			technologies: [
+				'Node.js',
+				'Express',
+				'PostgreSQL',
+				'REST APIs',
+				'GraphQL',
+			],
 			featured: false,
 			contactLink: `mailto:${person.email}?subject=Inquiry: API Integration & Backend Development`,
 		},
