@@ -38,6 +38,12 @@ const newsletter: Newsletter = {
 
 const social: Social = [
 	{
+		name: 'CV / Resume',
+		icon: 'cv',
+		link: 'https://armando-swe-cv.vercel.app', // Update with your real GitHub
+		essential: true,
+	},
+	{
 		name: 'GitHub',
 		icon: 'github',
 		link: 'https://github.com/armando284', // Update with your real GitHub
