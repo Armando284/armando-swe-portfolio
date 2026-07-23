@@ -88,7 +88,7 @@ const home: Home = {
 			<Row
 				gap="12"
 				vertical="center">
-				<strong className="ml-4">AI Automation</strong>{' '}
+				<strong className="ml-4">Taller Web</strong>{' '}
 				<Line
 					background="brand-alpha-strong"
 					vert
@@ -101,7 +101,7 @@ const home: Home = {
 				</Text>
 			</Row>
 		),
-		href: '/work/ai-email-automation', // Update once you create the project page
+		href: 'https://tallerweb-cu.vercel.app',
 	},
 	subline: (
 		<>
